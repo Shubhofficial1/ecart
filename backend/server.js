@@ -1,5 +1,7 @@
 const express = require("express");
 const products = require("./products.js");
+const dotenv = require('dotenv')
+dotenv.config()
 
 const app = express();
 
