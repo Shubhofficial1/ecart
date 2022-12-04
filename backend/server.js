@@ -1,9 +1,12 @@
 import express from "express";
 import products from "./products.js";
 import dotenv from "dotenv";
+import colors from "colors";
+import connectDb from "./config/db.js";
 
 dotenv.config();
 
+connectDb();
 const app = express();
 
 // Port
