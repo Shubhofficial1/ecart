@@ -25,3 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 /frontend/node_modules
 /.env
+/backend/data/users.js
+/backend/seeder
