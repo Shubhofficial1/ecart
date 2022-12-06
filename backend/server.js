@@ -3,29 +3,21 @@ import products from "../backend/data/products.js";
 import dotenv from "dotenv";
 import colors from "colors";
 import connectDb from "./config/db.js";
+import productRoutes from "./routes/productRoutes.js";
 
 dotenv.config();
-
 connectDb();
 const app = express();
 
 // Port
 const PORT = process.env.PORT || 5000;
 
-// routes
-
+// Routes
 app.get("/", (req, res) => {
   res.send("Api is Running..");
 });
 
-app.get("/api/v1/products", (req, res) => {
-  res.json(products);
-});
-
-app.get("/api/v1/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+app.use("/api/v1/products", productRoutes);
 
 // Listener
 app.listen(PORT, () => {
