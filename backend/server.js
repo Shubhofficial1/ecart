@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import colors from "colors";
 import connectDb from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 connectDb();
@@ -18,6 +19,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/products", productRoutes);
+
+// Middlewares
+app.use(notFound);
+app.use(errorHandler);
 
 // Listener
 app.listen(PORT, () => {
