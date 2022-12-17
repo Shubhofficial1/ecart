@@ -4,6 +4,9 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "overrides": {
+    "nth-check": "^2.0.1"
+  },
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
