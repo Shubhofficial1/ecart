@@ -10,6 +10,8 @@ dotenv.config();
 connectDb();
 const app = express();
 
+app.use(express.json());
+
 // Port
 const PORT = process.env.PORT || 5000;
 
@@ -19,7 +21,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/products", productRoutes);
-
 // Middlewares
 app.use(notFound);
 app.use(errorHandler);
